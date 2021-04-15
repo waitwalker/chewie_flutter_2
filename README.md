@@ -1,11 +1,8 @@
 # chewie
-[![Version](https://img.shields.io/badge/pub-v0.12.0-blue)](https://pub.dev/packages/chewie)
-![CI](https://github.com/brianegan/chewie/workflows/CI/badge.svg)
-[![Generic badge](https://img.shields.io/badge/platform-android%20|%20ios%20|%20web%20-blue.svg)](https://pub.dev/packages/chewie)
 
 The video player for Flutter with a heart of gold. 
 
-The [`video_player`](https://pub.dartlang.org/packages/video_player) plugin provides low-level access to video playback. Chewie uses the `video_player` under the hood and wraps it in a friendly Material or Cupertino UI!
+The [`video_player`](https://pub.dartlang.org/packages/video_player) plugin provides low-level access to video playback. Chewie uses the `video_player` under the hood and wraps it in a friendly Material or Cupertino UI! 
 
 ## Demo
 
@@ -26,12 +23,11 @@ dependencies:
 ```dart
 import 'package:chewie/chewie.dart';
 final videoPlayerController = VideoPlayerController.network(
-    'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');
-
-await videoPlayerController.initialize();
+    'https://flutter.github.io/assets-for-api-docs/videos/butterfly.mp4');
 
 final chewieController = ChewieController(
   videoPlayerController: videoPlayerController,
+  aspectRatio: 3 / 2,
   autoPlay: true,
   looping: true,
 );
@@ -61,6 +57,7 @@ Instead of passing the `VideoPlayerController` and your options to the `Chewie` 
 ```dart
 final playerWidget = Chewie(
   videoPlayerController,
+  aspectRatio: 3 / 2,
   autoPlay: true,
   looping: true,
 );
@@ -71,6 +68,7 @@ becomes
 ```dart
 final chewieController = ChewieController(
   videoPlayerController: videoPlayerController,
+  aspectRatio: 3 / 2,
   autoPlay: true,
   looping: true,
 );
@@ -80,10 +78,9 @@ final playerWidget = Chewie(
 );
 ```
 
-## iOS warning 
-The video_player plugin used by chewie will only work in iOS simulators if you are on flutter 1.26.0 or above. You may need to switch to the beta channel `flutter channel beta`
-Please refer to this [issue](https://github.com/flutter/flutter/issues/14647).
+## iOS warning
 
+The video player plugin used by chewie is not functional on iOS simulators. An iOS device must be used during development/testing. Please refer to this [issue](https://github.com/flutter/flutter/issues/14647).
 
 
 ```
