@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:chewie/src/chewie_player.dart';
 import 'package:chewie/src/cupertino_controls.dart';
 import 'package:chewie/src/material_controls.dart';
@@ -8,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:videoplayer/video_player.dart';
 
 class PlayerWithControls extends StatelessWidget {
-  PlayerWithControls({Key key}) : super(key: key);
+  PlayerWithControls({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class PlayerWithControls extends StatelessWidget {
       ChewieController chewieController, BuildContext context) {
     return Container(
       child: Stack(
-        children: <Widget>[
+        children: <Widget?>[
           chewieController.placeholder ?? Container(),
           Center(
             child: AspectRatio(
@@ -41,12 +40,12 @@ class PlayerWithControls extends StatelessWidget {
           ),
           chewieController.overlay ?? Container(),
           _buildControls(context, chewieController),
-        ],
+        ] as List<Widget>,
       ),
     );
   }
 
-  Widget _buildControls(
+  Widget? _buildControls(
     BuildContext context,
     ChewieController chewieController,
   ) {
